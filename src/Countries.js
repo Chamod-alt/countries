@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from "./components/Navbar";
 
 /*
 function App() {
@@ -118,6 +119,7 @@ function Countries() {
   
     return (
       <div>
+        <Navbar />
         <h2>All Countries</h2>
         <ul>
           {countries.map((c, i) => (

@@ -1,37 +1,9 @@
-/*
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import CountryCard from '../components/CountryCard';
-
-function Countries() {
-  const [countries, setCountries] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get('https://restcountries.com/v3.1/all?fields=name,capital,region,population,languages,flags')
-      .then(res => setCountries(res.data))
-      .catch(err => console.error("API Error:", err));
-  }, []);
-  
-
-  return (
-    <div className="container mt-4">
-      <h2 className="mb-4"> All Countries</h2>
-      <div className="row">
-        {countries.map((country, index) => (
-          <CountryCard key={index} country={country} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export default Countries;
-*/
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CountryCard from '../components/CountryCard';
+
+import Navbar from "../components/Navbar";
 
 function Countries() {
   const [countries, setCountries] = useState([]);
@@ -79,22 +51,24 @@ function Countries() {
   }, [searchQuery, regionFilter, languageFilter, countries]);
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">🌍 Country Explorer</h2>
-
+    <div>
+      <Navbar />
+    <div className="container mt-3">
+        
       {/* Filters */}
       <div className="mb-4 row g-3 align-items-center">
-        <div className="col-md-4">
+        <div className="col-md-4" style={{height:"90px"}}>
           <input
             type="text"
             placeholder="🔍 Search by name..."
             className="form-control"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
+        
           />
         </div>
 
-        <div className="col-md-3">
+        <div className="col-md-4" style={{height:"90px"}}>
           <select
             className="form-select"
             value={regionFilter}
@@ -109,7 +83,7 @@ function Countries() {
           </select>
         </div>
 
-        <div className="col-md-3">
+        <div className="col-md-4" style={{height:"90px"}}>
           <input
             type="text"
             placeholder="🗣 Filter by Language..."
@@ -120,7 +94,7 @@ function Countries() {
         </div>
       </div>
 
-      {/* Country Cards */}
+      {/* Country Cards *
       <div className="row">
         {filteredCountries.length > 0 ? (
           filteredCountries.map((country, index) => (
@@ -130,6 +104,17 @@ function Countries() {
           <p className="text-center">No countries found.</p>
         )}
       </div>
+
+      */}
+
+<div className="row">
+  {filteredCountries.map((country, index) => (
+    <div key={index} className="col-md-4 mb-3">
+      <CountryCard country={country}  />
+    </div>
+  ))}
+</div>
+  </div>
     </div>
   );
 }

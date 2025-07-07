@@ -17,3 +17,13 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+ /* 
+
+
+ {
+  "rules": {
+    ".read": "now < 1754418600000",  // 2025-8-6
+    ".write": "now < 1754418600000",  // 2025-8-6
+  }
+}
+ */

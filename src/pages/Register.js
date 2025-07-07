@@ -1,87 +1,26 @@
-/*
-import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase'; // adjust path as needed
-import { useNavigate } from 'react-router-dom';
-
-function Register({ onRegister }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirm, setConfirm] = useState('');
-  const [error, setError] = useState('');
-
-  const navigate= useNavigate();
-
-  const handleRegister = async (e) => {
-    e.preventDefault();
-
-    if (password !== confirm) {
-      setError("Passwords do not match");
-      return;
-    }
-
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      setError('');
-      onRegister && onRegister(); // Optional callback
-      alert("Registration successful!");
-      navigate("/Login")
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  return (
-    <div className="container mt-4">
-      <h2 className="mb-3">Sign Up</h2>
-      {error && <div className="alert alert-danger">{error}</div>}
-
-      <form onSubmit={handleRegister}>
-        <input
-          type="email"
-          className="form-control mb-3"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        <input
-          type="password"
-          className="form-control mb-3"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-
-        <input
-          type="password"
-          className="form-control mb-3"
-          placeholder="Confirm Password"
-          onChange={(e) => setConfirm(e.target.value)}
-          required
-        />
-
-        <button type="submit" className="btn btn-primary w-100">Sign Up</button>
-      </form>
-    </div>
-  );
-}
-
-export default Register;
-*/
 
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './Login.css';
+import img from "./ice.jpg";
 
 function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert('Signup successful');
@@ -92,8 +31,13 @@ function Signup() {
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: '400px' }}>
-      <h2 className="mb-4">Sign Up</h2>
+     <div className='login-page'>
+
+      <div className='left-panel'>
+        <div className="container mt-5" style={{ maxWidth: '600px' }}>
+       <h1 style={{alignItems:"left", marginLeft:"-60px",marginTop:"-150px"}}><b>Country Explorer</b></h1>
+       <br />
+      <h2 className="mb-4 mt-5">Sign Up</h2>
       <form onSubmit={handleSignup}>
         <input
           className="form-control mb-3"
@@ -111,10 +55,47 @@ function Signup() {
           onChange={e => setPassword(e.target.value)}
           required
         />
-        <button className="btn btn-success w-100" type="submit">Sign Up</button>
+        <input
+          className="form-control mb-4"
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={e => setConfirmPassword(e.target.value)}
+          required
+        />
+        <br />
+        <p>If You All Ready Sign Up Please <Link to="/Login">Login Here</Link></p>
+        <button className="btn btn-primary w-100" type="submit">Sign Up</button>
       </form>
+    </div>
+        </div>     
+             
+           <div className="right-panel">
+      <svg viewBox="0 0 1 1" preserveAspectRatio="none" className="clip-svg">
+  <clipPath id="wave-clip" clipPathUnits="objectBoundingBox">
+    <path
+      d="
+        M1,0
+        L0.25,0
+        C0.15,0.1 0.15,0.2 0.25,0.3
+        C0.35,0.4 0.15,0.5 0.25,0.6
+        C0.35,0.7 0.15,0.8 0.25,1
+        L1,1
+        L1,1
+        
+        Z
+      "
+    />
+  </clipPath>
+</svg>
+
+  <img src={img} alt="Mountains" className="clipped-img" />
+</div>
+
+     
     </div>
   );
 }
 
 export default Signup;
+
