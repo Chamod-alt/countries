@@ -23,7 +23,7 @@ function Login({ onLogin }) {
 
       navigate('/Countries'); // Redirect to home or dashboard
     } catch (err) {
-      alert('Login failed: ' + err.message);
+      alert('Login failed try again');
     }
   };
 
@@ -32,9 +32,8 @@ function Login({ onLogin }) {
     <div className='login-page'>
       <div className='left-panel'>
        <div className="container mt-5" style={{ maxWidth: '600px' }}>
-           <h1 style={{alignItems:"left", marginLeft:"-60px",marginTop:"-200px"}}><b>Country Explorer</b></h1>
-       <br />
-       <br />
+           <h1 style={{alignItems:"left", marginLeft:"0px",marginTop:"-150px"}}><b>Country Explorer</b></h1>
+       
       <h2 className="mb-4 mt-5">Login</h2>
       <form onSubmit={handleLogin}>
         <div className="mb-3">

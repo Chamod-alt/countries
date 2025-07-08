@@ -75,7 +75,7 @@ function Favorites() {
     */
 
    <div>
-    <Navbar />
+   <Navbar></Navbar>
     <div className="container mt-4">
   <h2 className="mb-4">Your Favorite Countries</h2>
   <div className="row gx-3 gy-4">

@@ -23,10 +23,10 @@ function Signup() {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      alert('Signup successful');
+      alert('Signup successful please login.....');
       navigate('/login');
     } catch (err) {
-      alert('Signup failed: ' + err.message);
+      alert('Signup failed: try again ');
     }
   };
 
@@ -35,8 +35,8 @@ function Signup() {
 
       <div className='left-panel'>
         <div className="container mt-5" style={{ maxWidth: '600px' }}>
-       <h1 style={{alignItems:"left", marginLeft:"-60px",marginTop:"-150px"}}><b>Country Explorer</b></h1>
-       <br />
+       <h1 style={{alignItems:"left", marginLeft:"0px",marginTop:"-100px"}}><b>Country Explorer</b></h1>
+       
       <h2 className="mb-4 mt-5">Sign Up</h2>
       <form onSubmit={handleSignup}>
         <input

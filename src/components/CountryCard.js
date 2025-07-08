@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { getDatabase, ref, push, set, onValue } from 'firebase/database';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 
 function CountryCard({ country }) {
   const [user] = useAuthState(auth);
@@ -70,14 +73,22 @@ function CountryCard({ country }) {
         {isFavorite ? (
           <p className="mt-2 text-success fw-bold">This is in your favorites</p>
         ) : (
-          <button onClick={addToFavorites} className="btn btn-outline-success mt-2">❤️ Favorite</button>
+         
+
+         <button onClick={addToFavorites} className="btn btn-outline-success mt-2">
+  <FontAwesomeIcon icon={faHeart} className="me-2" />
+  Favorite
+</button>
+
         )}
       </div>
     </div>
   );
+
 }
 
 export default CountryCard;
 
+{/* <button onClick={addToFavorites} className="btn btn-outline-success mt-2">❤️ Favorite</button>*/}
 
 

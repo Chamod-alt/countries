@@ -5,6 +5,7 @@ import CountryCard from '../components/CountryCard';
 
 import Navbar from "../components/Navbar";
 
+
 function Countries() {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
@@ -52,29 +53,29 @@ function Countries() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar></Navbar>
     <div className="container mt-3">
         
       {/* Filters */}
-      <div className="mb-4 row g-3 align-items-center">
-        <div className="col-md-4" style={{height:"90px"}}>
+      <div className="mb-3 row  align-items-center">
+        <div className="col-md-4 mb-2">
+            
           <input
             type="text"
-            placeholder="🔍 Search by name..."
+            placeholder="Search by name..."
             className="form-control"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-        
           />
         </div>
 
-        <div className="col-md-4" style={{height:"90px"}}>
+        <div className="col-md-4 mb-2">
           <select
             className="form-select"
             value={regionFilter}
             onChange={e => setRegionFilter(e.target.value)}
           >
-            <option value="">🌐 Filter by Region</option>
+            <option value=""> Filter by Region</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
             <option value="Asia">Asia</option>
@@ -83,10 +84,10 @@ function Countries() {
           </select>
         </div>
 
-        <div className="col-md-4" style={{height:"90px"}}>
+        <div className="col-md-4 mb-2">
           <input
             type="text"
-            placeholder="🗣 Filter by Language..."
+            placeholder="Filter by Language..."
             className="form-control"
             value={languageFilter}
             onChange={e => setLanguageFilter(e.target.value)}
