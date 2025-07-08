@@ -1,51 +1,6 @@
-/*import React , { useEffect, useState } from 'react';
-import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Home from './pages/Home';
-import Countries from './pages/Countries';
-import NotFound from './pages/NotFound';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Favorites from './pages/Favorites';
-
-function App() {
 
 
-    const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      setDarkMode(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    document.body.className = darkMode ? 'bg-dark text-light' : 'bg-light text-dark';
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-  }, [darkMode]);
-
-
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/countries" element={<Countries />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/login" element={<Login onLogin={(user) => console.log("User logged in:", user)} />} />
-
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
-*/
-
-
+// app.js with dark/light mood
 /*
 import React, { useEffect, useState } from 'react';
 import './App.css'
@@ -111,14 +66,13 @@ export default AppWrapper;
 */
 
 
-
+// new app.js without light/drk chnges
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
+
 import Countries from './pages/Countries';
 import NotFound from './pages/NotFound';
 import Register from './pages/Register';

@@ -1,13 +1,13 @@
 
 
-// ✅ Add fetch polyfill at the top
+// Add fetch polyfill at the top
 import 'whatwg-fetch'; // <- Polyfill fetch for Jest + Firebase
 
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import Countries from '../pages/Countries';
 
-// ✅ Mock axios to avoid real API calls
+//  Mock axios to avoid real API calls
 jest.mock('axios', () => ({
   get: jest.fn(() => Promise.resolve({ data: [
     {

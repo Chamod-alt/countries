@@ -95,18 +95,7 @@ function Countries() {
         </div>
       </div>
 
-      {/* Country Cards *
-      <div className="row">
-        {filteredCountries.length > 0 ? (
-          filteredCountries.map((country, index) => (
-            <CountryCard key={index} country={country} />
-          ))
-        ) : (
-          <p className="text-center">No countries found.</p>
-        )}
-      </div>
-
-      */}
+     
 
 <div className="row">
   {filteredCountries.map((country, index) => (

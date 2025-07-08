@@ -1,3 +1,4 @@
+//navbar with the dark/light items
 /*
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -95,7 +96,7 @@ export default Navbar;
 
 */
 
-
+// navbar without toggle light/dark changes
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
